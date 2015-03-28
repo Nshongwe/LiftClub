@@ -14,16 +14,17 @@ namespace LiftClubApi.Models
             CellNumber = person.CellNumber;
             Gender = person.Gender;
             Email = person.Email;
-           RoleDescription = person.Role.Description;
+            Role = person.Role;
 
         }
 
+      
         public System.Guid PersonalID { get; set; }
         public string Name { get; set; }
         public string CellNumber { get; set; }
         public bool Gender { get; set; }
         public string Email { get; set; }
         public System.Guid RoleD { get; set; }
-        public String RoleDescription { get; set; }
+           public Role Role { get; set; }
     }
 }

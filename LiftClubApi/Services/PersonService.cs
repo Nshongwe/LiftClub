@@ -11,8 +11,8 @@ namespace LiftClubApi.Services
 
     public interface IPersonDataService
     {
-        public List<PersonalDto> PersonList();
-        public int PersonalRegister(PersonalDto personalDto);
+         List<PersonalDto> PersonList();
+         int PersonalRegister(PersonalDto personalDto);
     }
 
     public class PersonService : IPersonDataService

@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataService\PersonDataService.cs" />
     <Compile Include="Lift.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
