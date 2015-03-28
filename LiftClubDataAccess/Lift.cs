@@ -14,11 +14,16 @@ namespace LiftClubDataAccess
     
     public partial class Lift
     {
+        public Lift()
+        {
+            this.Subscribers = new HashSet<Subscriber>();
+        }
+    
         public System.Guid Lift1 { get; set; }
         public string CarType { get; set; }
         public int TotalSpace { get; set; }
         public int SpaceAvailable { get; set; }
-        public Nullable<bool> PreferredRace { get; set; }
+        public string PreferredRace { get; set; }
         public Nullable<bool> PreferredGender { get; set; }
         public System.DateTime MornigPickUpTime { get; set; }
         public System.DateTime EveningPickUpTim { get; set; }
@@ -36,5 +41,6 @@ namespace LiftClubDataAccess
         public System.Guid PersonalID { get; set; }
     
         public virtual Personal Personal { get; set; }
+        public virtual ICollection<Subscriber> Subscribers { get; set; }
     }
 }

@@ -8,7 +8,7 @@
     <Property Name="CarType" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="TotalSpace" Type="Int32" Nullable="false" />
     <Property Name="SpaceAvailable" Type="Int32" Nullable="false" />
-    <Property Name="PreferredRace" Type="Boolean" />
+    <Property Name="PreferredRace" Type="String" />
     <Property Name="PreferredGender" Type="Boolean" />
     <Property Name="MornigPickUpTime" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="EveningPickUpTim" Type="DateTime" Nullable="false" Precision="0" />
@@ -25,6 +25,7 @@
     <Property Name="Sunday" Type="Boolean" Nullable="false" />
     <Property Name="PersonalID" Type="Guid" Nullable="false" />
     <NavigationProperty Name="Personal" Relationship="Self.FK_Lift_Personal" FromRole="Lift" ToRole="Personal" />
+    <NavigationProperty Name="Subscribers" Relationship="liftClubModel.FK_Subscribers_Lift" FromRole="Lift" ToRole="Subscriber" />
   </EntityType>
   <EntityType Name="Personal">
     <Key>
@@ -38,6 +39,7 @@
     <Property Name="RoleD" Type="Guid" Nullable="false" />
     <NavigationProperty Name="Lifts" Relationship="Self.FK_Lift_Personal" FromRole="Personal" ToRole="Lift" />
     <NavigationProperty Name="Role" Relationship="Self.FK_Personal_Role" FromRole="Personal" ToRole="Role" />
+    <NavigationProperty Name="Subscribers" Relationship="liftClubModel.FK_Subscribers_Personal" FromRole="Personal" ToRole="Subscriber" />
   </EntityType>
   <EntityType Name="Role">
     <Key>
@@ -83,5 +85,48 @@
       <End Role="Role" EntitySet="Roles" />
       <End Role="Personal" EntitySet="Personals" />
     </AssociationSet>
+    <EntitySet Name="Subscribers" EntityType="liftClubModel.Subscriber" />
+    <AssociationSet Name="FK_Subscribers_Lift" Association="liftClubModel.FK_Subscribers_Lift">
+      <End Role="Lift" EntitySet="Lifts" />
+      <End Role="Subscriber" EntitySet="Subscribers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Subscribers_Personal" Association="liftClubModel.FK_Subscribers_Personal">
+      <End Role="Personal" EntitySet="Personals" />
+      <End Role="Subscriber" EntitySet="Subscribers" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="Subscriber">
+    <Key>
+      <PropertyRef Name="SubscriberID" />
+    </Key>
+    <Property Name="SubscriberID" Type="Guid" Nullable="false" />
+    <Property Name="PersonalID" Type="Guid" Nullable="false" />
+    <Property Name="Lift" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="Lift1" Relationship="liftClubModel.FK_Subscribers_Lift" FromRole="Subscriber" ToRole="Lift" />
+    <NavigationProperty Name="Personal" Relationship="liftClubModel.FK_Subscribers_Personal" FromRole="Subscriber" ToRole="Personal" />
+  </EntityType>
+  <Association Name="FK_Subscribers_Lift">
+    <End Type="liftClubModel.Lift" Role="Lift" Multiplicity="1" />
+    <End Type="liftClubModel.Subscriber" Role="Subscriber" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lift">
+        <PropertyRef Name="Lift1" />
+      </Principal>
+      <Dependent Role="Subscriber">
+        <PropertyRef Name="Lift" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Subscribers_Personal">
+    <End Type="liftClubModel.Personal" Role="Personal" Multiplicity="1" />
+    <End Type="liftClubModel.Subscriber" Role="Subscriber" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personal">
+        <PropertyRef Name="PersonalID" />
+      </Principal>
+      <Dependent Role="Subscriber">
+        <PropertyRef Name="PersonalID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

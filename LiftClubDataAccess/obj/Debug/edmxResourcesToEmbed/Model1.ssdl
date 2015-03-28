@@ -8,7 +8,7 @@
     <Property Name="CarType" Type="nvarchar" MaxLength="15" Nullable="false" />
     <Property Name="TotalSpace" Type="int" Nullable="false" />
     <Property Name="SpaceAvailable" Type="int" Nullable="false" />
-    <Property Name="PreferredRace" Type="bit" />
+    <Property Name="PreferredRace" Type="nvarchar" MaxLength="20" />
     <Property Name="PreferredGender" Type="bit" />
     <Property Name="MornigPickUpTime" Type="smalldatetime" Nullable="false" />
     <Property Name="EveningPickUpTim" Type="smalldatetime" Nullable="false" />
@@ -43,6 +43,14 @@
     <Property Name="RoleD" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="Subscribers">
+    <Key>
+      <PropertyRef Name="SubscriberID" />
+    </Key>
+    <Property Name="SubscriberID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PersonalID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Lift" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
   <Association Name="FK_Lift_Personal">
     <End Role="Personal" Type="Self.Personal" Multiplicity="1" />
     <End Role="Lift" Type="Self.Lift" Multiplicity="*" />
@@ -67,10 +75,35 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Subscribers_Lift">
+    <End Role="Lift" Type="Self.Lift" Multiplicity="1" />
+    <End Role="Subscribers" Type="Self.Subscribers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lift">
+        <PropertyRef Name="Lift" />
+      </Principal>
+      <Dependent Role="Subscribers">
+        <PropertyRef Name="Lift" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Subscribers_Personal">
+    <End Role="Personal" Type="Self.Personal" Multiplicity="1" />
+    <End Role="Subscribers" Type="Self.Subscribers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personal">
+        <PropertyRef Name="PersonalID" />
+      </Principal>
+      <Dependent Role="Subscribers">
+        <PropertyRef Name="PersonalID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="liftClubModelStoreContainer">
     <EntitySet Name="Lift" EntityType="Self.Lift" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Personal" EntityType="Self.Personal" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Subscribers" EntityType="Self.Subscribers" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Lift_Personal" Association="Self.FK_Lift_Personal">
       <End Role="Personal" EntitySet="Personal" />
       <End Role="Lift" EntitySet="Lift" />
@@ -78,6 +111,14 @@
     <AssociationSet Name="FK_Personal_Role" Association="Self.FK_Personal_Role">
       <End Role="Role" EntitySet="Role" />
       <End Role="Personal" EntitySet="Personal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Subscribers_Lift" Association="Self.FK_Subscribers_Lift">
+      <End Role="Lift" EntitySet="Lift" />
+      <End Role="Subscribers" EntitySet="Subscribers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Subscribers_Personal" Association="Self.FK_Subscribers_Personal">
+      <End Role="Personal" EntitySet="Personal" />
+      <End Role="Subscribers" EntitySet="Subscribers" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

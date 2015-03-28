@@ -10,6 +10,9 @@
         <EntityTypeShape EntityType="liftClubModel.Role" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
         <AssociationConnector Association="liftClubModel.FK_Lift_Personal" ManuallyRouted="false" />
         <AssociationConnector Association="liftClubModel.FK_Personal_Role" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="liftClubModel.Subscriber" Width="1.5" PointX="7.5" PointY="2.75" />
+        <AssociationConnector Association="liftClubModel.FK_Subscribers_Lift" />
+        <AssociationConnector Association="liftClubModel.FK_Subscribers_Personal" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
