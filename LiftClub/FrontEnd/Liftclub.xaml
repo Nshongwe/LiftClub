@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="LiftClub.Liftclub"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="480" d:DesignWidth="480">
+    
+    <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="497*"/>
+        </Grid.RowDefinitions>
+
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="Lift Club" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
+            <TextBlock Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" Text="Home" Foreground="#DED83A3A"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+
+        <Grid x:Name="ContentPanel0" Grid.Row="1" Margin="12,0,12,0" Grid.RowSpan="2">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,39,0,10">Enter liftclubFrom</TextBlock>
+            <TextBox x:Name="txtliftFrom" Margin="0,26,-223,0" RenderTransformOrigin="0.827,0.393" Grid.Column="1"/>
+            <TextBlock Margin="0,16,0,0" Grid.Row="1" Grid.Column="0">Enter liftclubTo</TextBlock>
+            <TextBox x:Name="txtliftTo" Grid.Row="1" Grid.Column="1" Margin="0,0,-223,0"/>
+
+
+        </Grid>
+
+
+        <Grid x:Name="ContentPanel" Margin="14,151,10,0" Grid.RowSpan="3">
+            <Button Content="Locate" HorizontalAlignment="Left" Margin="228,227,0,0" VerticalAlignment="Top" Background="#FF9B9BC9"/>
+
+        </Grid>
+        <TextBlock HorizontalAlignment="Left" Height="5" Margin="375,349,0,-35" Grid.Row="2" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="0"/>
+        
+    </Grid>
+   
+    
+</UserControl>
