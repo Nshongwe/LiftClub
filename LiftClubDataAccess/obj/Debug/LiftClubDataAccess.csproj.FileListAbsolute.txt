@@ -1,0 +1,10 @@
+C:\Users\ciscouser\Documents\LiftClub\LiftClub\LiftClubDataAccess\bin\Debug\LiftClubDataAccess.dll.config
+C:\Users\ciscouser\Documents\LiftClub\LiftClub\LiftClubDataAccess\bin\Debug\LiftClubDataAccess.dll
+C:\Users\ciscouser\Documents\LiftClub\LiftClub\LiftClubDataAccess\bin\Debug\LiftClubDataAccess.pdb
+C:\Users\ciscouser\Documents\LiftClub\LiftClub\LiftClubDataAccess\bin\Debug\EntityFramework.dll
+C:\Users\ciscouser\Documents\LiftClub\LiftClub\LiftClubDataAccess\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ciscouser\Documents\LiftClub\LiftClub\LiftClubDataAccess\bin\Debug\EntityFramework.xml
+C:\Users\ciscouser\Documents\LiftClub\LiftClub\LiftClubDataAccess\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ciscouser\Documents\LiftClub\LiftClub\LiftClubDataAccess\obj\Debug\LiftClubDataAccess.csprojResolveAssemblyReference.cache
+C:\Users\ciscouser\Documents\LiftClub\LiftClub\LiftClubDataAccess\obj\Debug\LiftClubDataAccess.dll
+C:\Users\ciscouser\Documents\LiftClub\LiftClub\LiftClubDataAccess\obj\Debug\LiftClubDataAccess.pdb

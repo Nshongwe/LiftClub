@@ -17,3 +17,23 @@ C:\Users\ciscouser\documents\visual studio 2013\Projects\LiftClub\LiftClub\obj\D
 C:\Users\ciscouser\documents\visual studio 2013\Projects\LiftClub\LiftClub\obj\Debug\LiftClub.dll
 C:\Users\ciscouser\documents\visual studio 2013\Projects\LiftClub\LiftClub\obj\Debug\LiftClub.pdb
 C:\Users\ciscouser\documents\visual studio 2013\Projects\LiftClub\LiftClub\obj\Debug\XapCacheFile.xml
+C:\Users\ciscouser\Documents\LiftClub\LiftClub\LiftClub\Bin\Debug\Assets\ApplicationIcon.png
+C:\Users\ciscouser\Documents\LiftClub\LiftClub\LiftClub\Bin\Debug\Assets\Tiles\FlipCycleTileLarge.png
+C:\Users\ciscouser\Documents\LiftClub\LiftClub\LiftClub\Bin\Debug\Assets\Tiles\FlipCycleTileMedium.png
+C:\Users\ciscouser\Documents\LiftClub\LiftClub\LiftClub\Bin\Debug\Assets\Tiles\FlipCycleTileSmall.png
+C:\Users\ciscouser\Documents\LiftClub\LiftClub\LiftClub\Bin\Debug\Assets\Tiles\IconicTileMediumLarge.png
+C:\Users\ciscouser\Documents\LiftClub\LiftClub\LiftClub\Bin\Debug\Assets\Tiles\IconicTileSmall.png
+C:\Users\ciscouser\Documents\LiftClub\LiftClub\LiftClub\Bin\Debug\LiftClub.dll.config
+C:\Users\ciscouser\Documents\LiftClub\LiftClub\LiftClub\Bin\Debug\LiftClub.dll
+C:\Users\ciscouser\Documents\LiftClub\LiftClub\LiftClub\Bin\Debug\LiftClub.pdb
+C:\Users\ciscouser\Documents\LiftClub\LiftClub\LiftClub\Bin\Debug\AppManifest.xaml
+C:\Users\ciscouser\Documents\LiftClub\LiftClub\LiftClub\Bin\Debug\Properties\WMAppManifest.xml
+C:\Users\ciscouser\Documents\LiftClub\LiftClub\LiftClub\Bin\Debug\LiftClub_Debug_AnyCPU.xap
+C:\Users\ciscouser\Documents\LiftClub\LiftClub\LiftClub\obj\Debug\App.g.cs
+C:\Users\ciscouser\Documents\LiftClub\LiftClub\LiftClub\obj\Debug\MainPage.g.cs
+C:\Users\ciscouser\Documents\LiftClub\LiftClub\LiftClub\obj\Debug\LiftClub.g.resources
+C:\Users\ciscouser\Documents\LiftClub\LiftClub\LiftClub\obj\Debug\LiftClub.Resources.AppResources.resources
+C:\Users\ciscouser\Documents\LiftClub\LiftClub\LiftClub\obj\Debug\LiftClub.csproj.GenerateResource.Cache
+C:\Users\ciscouser\Documents\LiftClub\LiftClub\LiftClub\obj\Debug\LiftClub.dll
+C:\Users\ciscouser\Documents\LiftClub\LiftClub\LiftClub\obj\Debug\LiftClub.pdb
+C:\Users\ciscouser\Documents\LiftClub\LiftClub\LiftClub\obj\Debug\XapCacheFile.xml
