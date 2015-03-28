@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="liftClubModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Lift">
+          <Key>
+            <PropertyRef Name="Lift" />
+          </Key>
+          <Property Name="Lift" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CarType" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="TotalSpace" Type="int" Nullable="false" />
+          <Property Name="SpaceAvailable" Type="int" Nullable="false" />
+          <Property Name="PreferredRace" Type="nvarchar" MaxLength="20" />
+          <Property Name="PreferredGender" Type="bit" />
+          <Property Name="MornigPickUpTime" Type="smalldatetime" Nullable="false" />
+          <Property Name="EveningPickUpTim" Type="smalldatetime" Nullable="false" />
+          <Property Name="SuburbFrom" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="SuburbTo" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Charge" Type="money" />
+          <Property Name="ServiceName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Monday" Type="bit" Nullable="false" />
+          <Property Name="Tuesday" Type="bit" Nullable="false" />
+          <Property Name="Wednesday" Type="bit" Nullable="false" />
+          <Property Name="Thursday" Type="bit" Nullable="false" />
+          <Property Name="Friday" Type="bit" Nullable="false" />
+          <Property Name="Saturday" Type="bit" Nullable="false" />
+          <Property Name="Sunday" Type="bit" Nullable="false" />
+          <Property Name="PersonalID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Personal">
+          <Key>
+            <PropertyRef Name="PersonalID" />
+          </Key>
+          <Property Name="PersonalID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="CellNumber" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Gender" Type="bit" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="RoleD" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleD" />
+          </Key>
+          <Property Name="RoleD" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Subscribers">
+          <Key>
+            <PropertyRef Name="SubscriberID" />
+          </Key>
+          <Property Name="SubscriberID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PersonalID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Lift" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Lift_Personal">
+          <End Role="Personal" Type="Self.Personal" Multiplicity="1" />
+          <End Role="Lift" Type="Self.Lift" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personal">
+              <PropertyRef Name="PersonalID" />
+            </Principal>
+            <Dependent Role="Lift">
+              <PropertyRef Name="PersonalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Personal_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Personal" Type="Self.Personal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RoleD" />
+            </Principal>
+            <Dependent Role="Personal">
+              <PropertyRef Name="RoleD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subscribers_Lift">
+          <End Role="Lift" Type="Self.Lift" Multiplicity="1" />
+          <End Role="Subscribers" Type="Self.Subscribers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lift">
+              <PropertyRef Name="Lift" />
+            </Principal>
+            <Dependent Role="Subscribers">
+              <PropertyRef Name="Lift" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subscribers_Personal">
+          <End Role="Personal" Type="Self.Personal" Multiplicity="1" />
+          <End Role="Subscribers" Type="Self.Subscribers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personal">
+              <PropertyRef Name="PersonalID" />
+            </Principal>
+            <Dependent Role="Subscribers">
+              <PropertyRef Name="PersonalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="liftClubModelStoreContainer">
+          <EntitySet Name="Lift" EntityType="Self.Lift" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Personal" EntityType="Self.Personal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Subscribers" EntityType="Self.Subscribers" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Lift_Personal" Association="Self.FK_Lift_Personal">
+            <End Role="Personal" EntitySet="Personal" />
+            <End Role="Lift" EntitySet="Lift" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Personal_Role" Association="Self.FK_Personal_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Personal" EntitySet="Personal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subscribers_Lift" Association="Self.FK_Subscribers_Lift">
+            <End Role="Lift" EntitySet="Lift" />
+            <End Role="Subscribers" EntitySet="Subscribers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subscribers_Personal" Association="Self.FK_Subscribers_Personal">
+            <End Role="Personal" EntitySet="Personal" />
+            <End Role="Subscribers" EntitySet="Subscribers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="liftClubModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Lift">
+          <Key>
+            <PropertyRef Name="Lift1" />
+          </Key>
+          <Property Name="Lift1" Type="Guid" Nullable="false" />
+          <Property Name="CarType" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TotalSpace" Type="Int32" Nullable="false" />
+          <Property Name="SpaceAvailable" Type="Int32" Nullable="false" />
+          <Property Name="PreferredRace" Type="String" />
+          <Property Name="PreferredGender" Type="Boolean" />
+          <Property Name="MornigPickUpTime" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EveningPickUpTim" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="SuburbFrom" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SuburbTo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Charge" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ServiceName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Monday" Type="Boolean" Nullable="false" />
+          <Property Name="Tuesday" Type="Boolean" Nullable="false" />
+          <Property Name="Wednesday" Type="Boolean" Nullable="false" />
+          <Property Name="Thursday" Type="Boolean" Nullable="false" />
+          <Property Name="Friday" Type="Boolean" Nullable="false" />
+          <Property Name="Saturday" Type="Boolean" Nullable="false" />
+          <Property Name="Sunday" Type="Boolean" Nullable="false" />
+          <Property Name="PersonalID" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Personal" Relationship="Self.FK_Lift_Personal" FromRole="Lift" ToRole="Personal" />
+          <NavigationProperty Name="Subscribers" Relationship="liftClubModel.FK_Subscribers_Lift" FromRole="Lift" ToRole="Subscriber" />
+        </EntityType>
+        <EntityType Name="Personal">
+          <Key>
+            <PropertyRef Name="PersonalID" />
+          </Key>
+          <Property Name="PersonalID" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CellNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Gender" Type="Boolean" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RoleD" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Lifts" Relationship="Self.FK_Lift_Personal" FromRole="Personal" ToRole="Lift" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_Personal_Role" FromRole="Personal" ToRole="Role" />
+          <NavigationProperty Name="Subscribers" Relationship="liftClubModel.FK_Subscribers_Personal" FromRole="Personal" ToRole="Subscriber" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleD" />
+          </Key>
+          <Property Name="RoleD" Type="Guid" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Personals" Relationship="Self.FK_Personal_Role" FromRole="Role" ToRole="Personal" />
+        </EntityType>
+        <Association Name="FK_Lift_Personal">
+          <End Role="Personal" Type="Self.Personal" Multiplicity="1" />
+          <End Role="Lift" Type="Self.Lift" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personal">
+              <PropertyRef Name="PersonalID" />
+            </Principal>
+            <Dependent Role="Lift">
+              <PropertyRef Name="PersonalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Personal_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Personal" Type="Self.Personal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RoleD" />
+            </Principal>
+            <Dependent Role="Personal">
+              <PropertyRef Name="RoleD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="liftClubEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Lifts" EntityType="Self.Lift" />
+          <EntitySet Name="Personals" EntityType="Self.Personal" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <AssociationSet Name="FK_Lift_Personal" Association="Self.FK_Lift_Personal">
+            <End Role="Personal" EntitySet="Personals" />
+            <End Role="Lift" EntitySet="Lifts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Personal_Role" Association="Self.FK_Personal_Role">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="Personal" EntitySet="Personals" />
+          </AssociationSet>
+          <EntitySet Name="Subscribers" EntityType="liftClubModel.Subscriber" />
+          <AssociationSet Name="FK_Subscribers_Lift" Association="liftClubModel.FK_Subscribers_Lift">
+            <End Role="Lift" EntitySet="Lifts" />
+            <End Role="Subscriber" EntitySet="Subscribers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subscribers_Personal" Association="liftClubModel.FK_Subscribers_Personal">
+            <End Role="Personal" EntitySet="Personals" />
+            <End Role="Subscriber" EntitySet="Subscribers" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Subscriber">
+          <Key>
+            <PropertyRef Name="SubscriberID" />
+          </Key>
+          <Property Name="SubscriberID" Type="Guid" Nullable="false" />
+          <Property Name="PersonalID" Type="Guid" Nullable="false" />
+          <Property Name="Lift" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Lift1" Relationship="liftClubModel.FK_Subscribers_Lift" FromRole="Subscriber" ToRole="Lift" />
+          <NavigationProperty Name="Personal" Relationship="liftClubModel.FK_Subscribers_Personal" FromRole="Subscriber" ToRole="Personal" />
+        </EntityType>
+        <Association Name="FK_Subscribers_Lift">
+          <End Type="liftClubModel.Lift" Role="Lift" Multiplicity="1" />
+          <End Type="liftClubModel.Subscriber" Role="Subscriber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lift">
+              <PropertyRef Name="Lift1" />
+            </Principal>
+            <Dependent Role="Subscriber">
+              <PropertyRef Name="Lift" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subscribers_Personal">
+          <End Type="liftClubModel.Personal" Role="Personal" Multiplicity="1" />
+          <End Type="liftClubModel.Subscriber" Role="Subscriber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personal">
+              <PropertyRef Name="PersonalID" />
+            </Principal>
+            <Dependent Role="Subscriber">
+              <PropertyRef Name="PersonalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="liftClubModelStoreContainer" CdmEntityContainer="liftClubEntities">
+          <EntitySetMapping Name="Lifts">
+            <EntityTypeMapping TypeName="liftClubModel.Lift">
+              <MappingFragment StoreEntitySet="Lift">
+                <ScalarProperty Name="Lift1" ColumnName="Lift" />
+                <ScalarProperty Name="CarType" ColumnName="CarType" />
+                <ScalarProperty Name="TotalSpace" ColumnName="TotalSpace" />
+                <ScalarProperty Name="SpaceAvailable" ColumnName="SpaceAvailable" />
+                <ScalarProperty Name="PreferredRace" ColumnName="PreferredRace" />
+                <ScalarProperty Name="PreferredGender" ColumnName="PreferredGender" />
+                <ScalarProperty Name="MornigPickUpTime" ColumnName="MornigPickUpTime" />
+                <ScalarProperty Name="EveningPickUpTim" ColumnName="EveningPickUpTim" />
+                <ScalarProperty Name="SuburbFrom" ColumnName="SuburbFrom" />
+                <ScalarProperty Name="SuburbTo" ColumnName="SuburbTo" />
+                <ScalarProperty Name="Charge" ColumnName="Charge" />
+                <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
+                <ScalarProperty Name="Monday" ColumnName="Monday" />
+                <ScalarProperty Name="Tuesday" ColumnName="Tuesday" />
+                <ScalarProperty Name="Wednesday" ColumnName="Wednesday" />
+                <ScalarProperty Name="Thursday" ColumnName="Thursday" />
+                <ScalarProperty Name="Friday" ColumnName="Friday" />
+                <ScalarProperty Name="Saturday" ColumnName="Saturday" />
+                <ScalarProperty Name="Sunday" ColumnName="Sunday" />
+                <ScalarProperty Name="PersonalID" ColumnName="PersonalID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Personals">
+            <EntityTypeMapping TypeName="liftClubModel.Personal">
+              <MappingFragment StoreEntitySet="Personal">
+                <ScalarProperty Name="PersonalID" ColumnName="PersonalID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CellNumber" ColumnName="CellNumber" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="RoleD" ColumnName="RoleD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="liftClubModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="RoleD" ColumnName="RoleD" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subscribers">
+            <EntityTypeMapping TypeName="liftClubModel.Subscriber">
+              <MappingFragment StoreEntitySet="Subscribers">
+                <ScalarProperty Name="Lift" ColumnName="Lift" />
+                <ScalarProperty Name="PersonalID" ColumnName="PersonalID" />
+                <ScalarProperty Name="SubscriberID" ColumnName="SubscriberID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
