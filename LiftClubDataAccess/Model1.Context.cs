@@ -28,5 +28,6 @@ namespace LiftClubDataAccess
         public virtual DbSet<Lift> Lifts { get; set; }
         public virtual DbSet<Personal> Personals { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<Subscriber> Subscribers { get; set; }
     }
 }

@@ -17,6 +17,7 @@ namespace LiftClubDataAccess
         public Personal()
         {
             this.Lifts = new HashSet<Lift>();
+            this.Subscribers = new HashSet<Subscriber>();
         }
     
         public System.Guid PersonalID { get; set; }
@@ -28,5 +29,6 @@ namespace LiftClubDataAccess
     
         public virtual ICollection<Lift> Lifts { get; set; }
         public virtual Role Role { get; set; }
+        public virtual ICollection<Subscriber> Subscribers { get; set; }
     }
 }
