@@ -9,24 +9,26 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     d:DesignHeight="480" d:DesignWidth="480">
 
-    <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}">
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="0,0,0,0">
-            <TextBlock Text="Lift Club" Style="{StaticResource PhoneTextNormalStyle}" Margin="0,0"/>
-            <TextBlock Margin="0,0,0,0" Style="{StaticResource PhoneTextTitle1Style}" Text="Subscribe" Foreground="#DED83A3A"/>
-        </StackPanel>
+    <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}" RenderTransformOrigin="0.046,0.048" Margin="0,0,0,-264" Height="744" VerticalAlignment="Top">
+        <TextBlock HorizontalAlignment="Left" Margin="10,44,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Height="42" Width="69"/>
+        <TextBox HorizontalAlignment="Left" Height="78" Margin="117,19,0,0" TextWrapping="Wrap" x:Name="txtname" VerticalAlignment="Top" Width="352"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,177,0,0" TextWrapping="Wrap" Text="Gender" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,240,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,300,0,0" TextWrapping="Wrap" Text="From" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,384,0,0" TextWrapping="Wrap" Text="TO" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="80" Margin="117,86,0,0" TextWrapping="Wrap" x:Name="txtcell" VerticalAlignment="Top" Width="353"/>
+        <TextBox HorizontalAlignment="Left" Height="75" Margin="117,152,0,0" TextWrapping="Wrap" x:Name="txtgender" VerticalAlignment="Top" Width="353"/>
+        <TextBox HorizontalAlignment="Left" Height="72" Margin="117,215,0,0" TextWrapping="Wrap" x:Name="txtemail" VerticalAlignment="Top" Width="352"/>
+        <TextBox HorizontalAlignment="Left" Height="72" Margin="117,287,0,0" TextWrapping="Wrap" x:Name="txtfrom" VerticalAlignment="Top" Width="353"/>
+        <TextBox Height="67" Margin="117,359,0,0" TextWrapping="Wrap" x:Name="txtto" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,111,0,0" TextWrapping="Wrap" Text="Cell" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,384,0,0" TextWrapping="Wrap" Text="TO" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,454,0,0" TextWrapping="Wrap" Text="Cost" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="70" Margin="117,411,0,0" TextWrapping="Wrap" Name="txtcost" VerticalAlignment="Top" Width="363" TextChanged="TextBox_TextChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,511,0,0" TextWrapping="Wrap" Text="Pick M " VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="64" Margin="117,492,0,0" TextWrapping="Wrap" Name="txtpMorning" VerticalAlignment="Top" Width="353"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,597,0,0" TextWrapping="Wrap" Text="Pick Ev" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="62" Margin="117,572,0,0" TextWrapping="Wrap" Name="txtpevening" VerticalAlignment="Top" Width="352"/>
 
-
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" MinHeight="161"/>
-            <RowDefinition Height="22.577"/>
-            <RowDefinition Height="59.422"/>
-            <RowDefinition Height="auto"/>
-        </Grid.RowDefinitions>
-
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="auto"/>
-        </Grid.ColumnDefinitions>
-        
     </Grid>
 </UserControl>

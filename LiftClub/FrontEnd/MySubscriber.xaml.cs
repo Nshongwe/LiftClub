@@ -10,16 +10,11 @@ using Microsoft.Phone.Shell;
 
 namespace LiftClub.FrontEnd
 {
-    public partial class Wind : UserControl
+    public partial class MySubscriber : UserControl
     {
-        public Wind()
+        public MySubscriber()
         {
             InitializeComponent();
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
         }
     }
 }

@@ -7,8 +7,8 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    d:DesignHeight="480" d:DesignWidth="480">
-    
+    d:DesignHeight="700" d:DesignWidth="450">
+
     <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -25,7 +25,7 @@
 
         <!--ContentPanel - place additional content here-->
 
-        <Grid x:Name="ContentPanel0" Grid.Row="1" Margin="12,0,12,0" Grid.RowSpan="2">
+        <Grid x:Name="ContentPanel0" Grid.Row="1" Margin="12,10,12,-10" Grid.RowSpan="2">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -46,13 +46,56 @@
         </Grid>
 
 
-        <Grid x:Name="ContentPanel" Margin="14,151,10,0" Grid.RowSpan="3">
+        <Grid x:Name="ContentPanel" Margin="14,151,10,0" Grid.RowSpan="3" Height="329" VerticalAlignment="Top">
             <Button Content="Locate" HorizontalAlignment="Left" Margin="228,227,0,0" VerticalAlignment="Top" Background="#FF9B9BC9"/>
+            <TextBlock HorizontalAlignment="Left" Margin="84,346,0,-152" TextWrapping="Wrap" VerticalAlignment="Top" Height="135" Width="199">
+            	<Run Text="&#x9;&#x9;"/>
+            	<LineBreak/>
+            	<Run/>
+            	<LineBreak/>
+            	<Run Text="&#x9;"/>
+            	<Run Text="For ">
+            		<Run.Foreground>
+            			<SolidColorBrush Color="#DEB05656">
+            				<SolidColorBrush.RelativeTransform>
+            					<MatrixTransform Matrix="Identity"/>
+            				</SolidColorBrush.RelativeTransform>
+            				<SolidColorBrush.Transform>
+            					<MatrixTransform Matrix="Identity"/>
+            				</SolidColorBrush.Transform>
+            			</SolidColorBrush>
+            		</Run.Foreground>
+            	</Run>
+            	<Run Text="Ad">
+            		<Run.Foreground>
+            			<SolidColorBrush Color="#DEA40E0E">
+            				<SolidColorBrush.RelativeTransform>
+            					<MatrixTransform Matrix="Identity"/>
+            				</SolidColorBrush.RelativeTransform>
+            				<SolidColorBrush.Transform>
+            					<MatrixTransform Matrix="Identity"/>
+            				</SolidColorBrush.Transform>
+            			</SolidColorBrush>
+            		</Run.Foreground>
+            	</Run>
+            	<Run Text="vert">
+            		<Run.Foreground>
+            			<SolidColorBrush Color="#DEA40E0E">
+            				<SolidColorBrush.RelativeTransform>
+            					<MatrixTransform Matrix="Identity"/>
+            				</SolidColorBrush.RelativeTransform>
+            				<SolidColorBrush.Transform>
+            					<MatrixTransform Matrix="Identity"/>
+            				</SolidColorBrush.Transform>
+            			</SolidColorBrush>
+            		</Run.Foreground>
+            	</Run>
+            </TextBlock>
 
         </Grid>
         <TextBlock HorizontalAlignment="Left" Height="5" Margin="375,349,0,-35" Grid.Row="2" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="0"/>
-        
+
     </Grid>
-   
-    
+
+
 </UserControl>
