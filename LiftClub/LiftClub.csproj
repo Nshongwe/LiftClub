@@ -99,6 +99,9 @@
     <Compile Include="FrontEnd\liftList.xaml.cs">
       <DependentUpon>liftList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FrontEnd\MySubscriber.xaml.cs">
+      <DependentUpon>MySubscriber.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FrontEnd\subscribe.xaml.cs">
       <DependentUpon>subscribe.xaml</DependentUpon>
     </Compile>
@@ -123,6 +126,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="FrontEnd\liftList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FrontEnd\MySubscriber.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
