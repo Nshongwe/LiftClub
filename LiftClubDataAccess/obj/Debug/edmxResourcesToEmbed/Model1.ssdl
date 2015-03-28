@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="liftClubModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Lift">
+    <Key>
+      <PropertyRef Name="Lift" />
+    </Key>
+    <Property Name="Lift" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CarType" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="TotalSpace" Type="int" Nullable="false" />
+    <Property Name="SpaceAvailable" Type="int" Nullable="false" />
+    <Property Name="PreferredRace" Type="bit" />
+    <Property Name="PreferredGender" Type="bit" />
+    <Property Name="MornigPickUpTime" Type="smalldatetime" Nullable="false" />
+    <Property Name="EveningPickUpTim" Type="smalldatetime" Nullable="false" />
+    <Property Name="SuburbFrom" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="SuburbTo" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Charge" Type="money" />
+    <Property Name="ServiceName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Monday" Type="bit" Nullable="false" />
+    <Property Name="Tuesday" Type="bit" Nullable="false" />
+    <Property Name="Wednesday" Type="bit" Nullable="false" />
+    <Property Name="Thursday" Type="bit" Nullable="false" />
+    <Property Name="Friday" Type="bit" Nullable="false" />
+    <Property Name="Saturday" Type="bit" Nullable="false" />
+    <Property Name="Sunday" Type="bit" Nullable="false" />
+    <Property Name="PersonalID" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Personal">
+    <Key>
+      <PropertyRef Name="PersonalID" />
+    </Key>
+    <Property Name="PersonalID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CellNumber" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Gender" Type="bit" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="RoleD" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleD" />
+    </Key>
+    <Property Name="RoleD" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Lift_Personal">
+    <End Role="Personal" Type="Self.Personal" Multiplicity="1" />
+    <End Role="Lift" Type="Self.Lift" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personal">
+        <PropertyRef Name="PersonalID" />
+      </Principal>
+      <Dependent Role="Lift">
+        <PropertyRef Name="PersonalID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Personal_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="Personal" Type="Self.Personal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleD" />
+      </Principal>
+      <Dependent Role="Personal">
+        <PropertyRef Name="RoleD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="liftClubModelStoreContainer">
+    <EntitySet Name="Lift" EntityType="Self.Lift" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Personal" EntityType="Self.Personal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Lift_Personal" Association="Self.FK_Lift_Personal">
+      <End Role="Personal" EntitySet="Personal" />
+      <End Role="Lift" EntitySet="Lift" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Personal_Role" Association="Self.FK_Personal_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="Personal" EntitySet="Personal" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

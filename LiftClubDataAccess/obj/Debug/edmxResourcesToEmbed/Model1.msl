@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="liftClubModelStoreContainer" CdmEntityContainer="liftClubEntities">
+    <EntitySetMapping Name="Lifts">
+      <EntityTypeMapping TypeName="liftClubModel.Lift">
+        <MappingFragment StoreEntitySet="Lift">
+          <ScalarProperty Name="Lift1" ColumnName="Lift" />
+          <ScalarProperty Name="CarType" ColumnName="CarType" />
+          <ScalarProperty Name="TotalSpace" ColumnName="TotalSpace" />
+          <ScalarProperty Name="SpaceAvailable" ColumnName="SpaceAvailable" />
+          <ScalarProperty Name="PreferredRace" ColumnName="PreferredRace" />
+          <ScalarProperty Name="PreferredGender" ColumnName="PreferredGender" />
+          <ScalarProperty Name="MornigPickUpTime" ColumnName="MornigPickUpTime" />
+          <ScalarProperty Name="EveningPickUpTim" ColumnName="EveningPickUpTim" />
+          <ScalarProperty Name="SuburbFrom" ColumnName="SuburbFrom" />
+          <ScalarProperty Name="SuburbTo" ColumnName="SuburbTo" />
+          <ScalarProperty Name="Charge" ColumnName="Charge" />
+          <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
+          <ScalarProperty Name="Monday" ColumnName="Monday" />
+          <ScalarProperty Name="Tuesday" ColumnName="Tuesday" />
+          <ScalarProperty Name="Wednesday" ColumnName="Wednesday" />
+          <ScalarProperty Name="Thursday" ColumnName="Thursday" />
+          <ScalarProperty Name="Friday" ColumnName="Friday" />
+          <ScalarProperty Name="Saturday" ColumnName="Saturday" />
+          <ScalarProperty Name="Sunday" ColumnName="Sunday" />
+          <ScalarProperty Name="PersonalID" ColumnName="PersonalID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Personals">
+      <EntityTypeMapping TypeName="liftClubModel.Personal">
+        <MappingFragment StoreEntitySet="Personal">
+          <ScalarProperty Name="PersonalID" ColumnName="PersonalID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CellNumber" ColumnName="CellNumber" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="RoleD" ColumnName="RoleD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="liftClubModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="RoleD" ColumnName="RoleD" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
